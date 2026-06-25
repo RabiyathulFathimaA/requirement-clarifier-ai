@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Requirement Clarifier AI — System Analyst Assistant</title>
+  <meta name="description" content="Convert your raw project idea into a structured software requirement document instantly." />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════════ -->
+  <nav class="navbar-custom">
+    <div class="navbar-inner">
+      <div class="brand">
+        <span class="brand-icon"><i class="bi bi-cpu-fill"></i></span>
+        <span class="brand-name">Requirement<span class="brand-accent">Clarifier</span> AI</span>
+      </div>
+      <div class="nav-badge">
+        <span class="badge-dot"></span>
+        <span>AI Powered</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════ -->
+  <section class="hero-section">
+    <div class="hero-bg-grid"></div>
+    <div class="container hero-content">
+      <div class="hero-label">
+        <i class="bi bi-stars"></i>
+        <span>System Analyst · AI Assistant</span>
+      </div>
+      <h1 class="hero-title">
+        Turn a raw idea into a<br />
+        <span class="gradient-text">full requirements doc</span>
+      </h1>
+      <p class="hero-subtitle">
+        Describe your project. Get structured users, modules, features,<br class="d-none d-md-block" />
+        and a complete database schema — in seconds.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       MAIN LAYOUT
+  ═══════════════════════════════════════════════ -->
+  <main class="main-container container">
+
+    <!-- ─── INPUT PANEL ──────────────────────────── -->
+    <section class="panel input-panel glass-card">
+      <div class="panel-header">
+        <h2 class="panel-title"><i class="bi bi-pencil-square"></i> Project Brief</h2>
+        <span class="panel-sub">Fill in the details below</span>
+      </div>
+
+      <!-- Project Idea -->
+      <div class="field-group">
+        <label class="field-label" for="projectIdea">
+          Project Idea <span class="required">*</span>
+        </label>
+        <textarea
+          id="projectIdea"
+          class="field-input field-textarea"
+          placeholder="e.g. A student team collaboration platform where students can report bugs, assign tasks, set priorities, and track resolution status in real time…"
+          rows="4"
+          maxlength="800"
+        ></textarea>
+        <span class="char-count" id="charCount">0 / 800</span>
+      </div>
+
+      <!-- Row: Project Type + Industry -->
+      <div class="row g-3 mt-1">
+        <div class="col-md-6">
+          <div class="field-group mb-0">
+            <label class="field-label" for="projectType">Project Type <span class="required">*</span></label>
+            <select id="projectType" class="field-input field-select">
+              <option value="" disabled selected>Select type…</option>
+              <option value="Web App">Web App</option>
+              <option value="Mobile App">Mobile App</option>
+              <option value="System Software">System Software</option>
+              <option value="Desktop App">Desktop App</option>
+              <option value="API / Microservice">API / Microservice</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="field-group mb-0">
+            <label class="field-label" for="industry">Industry <span class="required">*</span></label>
+            <select id="industry" class="field-input field-select">
+              <option value="" disabled selected>Select industry…</option>
+              <option value="Education">Education</option>
+              <option value="E-commerce">E-commerce</option>
+              <option value="Finance">Finance</option>
+              <option value="Healthcare">Healthcare</option>
+              <option value="Logistics">Logistics</option>
+              <option value="HR / Recruitment">HR / Recruitment</option>
+              <option value="Real Estate">Real Estate</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expected Users -->
+      <div class="field-group mt-3">
+        <label class="field-label" for="expectedUsers">Expected User Roles <span class="optional">(optional)</span></label>
+        <input
+          type="text"
+          id="expectedUsers"
+          class="field-input"
+          placeholder="e.g. Admin, Team Lead, Developer, QA Tester"
+        />
+        <p class="field-hint">Separate roles with commas. Leave blank to auto-detect.</p>
+      </div>
+
+      <!-- Feature Hints -->
+      <div class="field-group mt-3">
+        <label class="field-label">Feature Hints <span class="optional">(optional)</span></label>
+        <p class="field-hint mb-2">Check any features you want the system to include:</p>
+        <div class="checkbox-grid" id="featureHints">
+          <label class="check-chip"><input type="checkbox" value="Authentication & Roles" /><i class="bi bi-shield-lock"></i> Auth & Roles</label>
+          <label class="check-chip"><input type="checkbox" value="Dashboard & Analytics" /><i class="bi bi-bar-chart-line"></i> Dashboard</label>
+          <label class="check-chip"><input type="checkbox" value="Notifications & Alerts" /><i class="bi bi-bell"></i> Notifications</label>
+          <label class="check-chip"><input type="checkbox" value="File Upload & Management" /><i class="bi bi-cloud-upload"></i> File Upload</label>
+          <label class="check-chip"><input type="checkbox" value="Search & Filters" /><i class="bi bi-search"></i> Search</label>
+          <label class="check-chip"><input type="checkbox" value="Messaging / Chat" /><i class="bi bi-chat-dots"></i> Chat</label>
+          <label class="check-chip"><input type="checkbox" value="Reports & Export" /><i class="bi bi-file-earmark-bar-graph"></i> Reports</label>
+          <label class="check-chip"><input type="checkbox" value="Payment Integration" /><i class="bi bi-credit-card"></i> Payments</label>
+          <label class="check-chip"><input type="checkbox" value="Email Integration" /><i class="bi bi-envelope"></i> Email</label>
+          <label class="check-chip"><input type="checkbox" value="API Integration" /><i class="bi bi-plug"></i> API</label>
+          <label class="check-chip"><input type="checkbox" value="Audit Logs" /><i class="bi bi-journal-text"></i> Audit Logs</label>
+          <label class="check-chip"><input type="checkbox" value="Multi-language Support" /><i class="bi bi-translate"></i> i18n</label>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="action-row mt-4">
+        <button class="btn-generate" id="generateBtn" onclick="generateRequirements()">
+          <span class="btn-text">
+            <i class="bi bi-magic"></i>
+            Generate Requirements
+          </span>
+          <span class="btn-loader" style="display:none">
+            <span class="spinner"></span>
+            Analyzing…
+          </span>
+        </button>
+        <button class="btn-reset" onclick="resetForm()">
+          <i class="bi bi-arrow-counterclockwise"></i> Reset
+        </button>
+      </div>
+
+      <!-- Validation message -->
+      <div class="validation-msg" id="validationMsg" style="display:none">
+        <i class="bi bi-exclamation-circle"></i> Please fill in the Project Idea, Project Type, and Industry fields.
+      </div>
+    </section>
+
+    <!-- ─── OUTPUT SECTION ──────────────────────── -->
+    <section id="outputSection" style="display:none">
+
+      <!-- Output Header -->
+      <div class="output-header">
+        <div>
+          <h2 class="output-title">Requirement Analysis Report</h2>
+          <p class="output-meta" id="outputMeta"></p>
+        </div>
+        <button class="btn-export" onclick="exportReport()">
+          <i class="bi bi-download"></i> Export .txt
+        </button>
+      </div>
+
+      <!-- Analyst Intro -->
+      <div class="analyst-intro glass-card" id="analystIntro"></div>
+
+      <!-- Cards Grid -->
+      <div class="cards-grid">
+
+        <!-- 1. Users Card -->
+        <div class="output-card glass-card" id="usersCard">
+          <div class="card-head">
+            <div class="card-icon-wrap users-color">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <div>
+              <h3 class="card-title">System Users (Actors)</h3>
+              <p class="card-sub">Stakeholders interacting with the system</p>
+            </div>
+            <button class="copy-btn" onclick="copySection('usersContent', this)" title="Copy">
+              <i class="bi bi-clipboard"></i>
+            </button>
+          </div>
+          <div class="card-body-content" id="usersContent"></div>
+        </div>
+
+        <!-- 2. Modules Card -->
+        <div class="output-card glass-card" id="modulesCard">
+          <div class="card-head">
+            <div class="card-icon-wrap modules-color">
+              <i class="bi bi-grid-3x3-gap-fill"></i>
+            </div>
+            <div>
+              <h3 class="card-title">System Modules</h3>
+              <p class="card-sub">Core functional components of the system</p>
+            </div>
+            <button class="copy-btn" onclick="copySection('modulesContent', this)" title="Copy">
+              <i class="bi bi-clipboard"></i>
+            </button>
+          </div>
+          <div class="card-body-content" id="modulesContent"></div>
+        </div>
+
+        <!-- 3. Features Card -->
+        <div class="output-card glass-card features-wide" id="featuresCard">
+          <div class="card-head">
+            <div class="card-icon-wrap features-color">
+              <i class="bi bi-list-check"></i>
+            </div>
+            <div>
+              <h3 class="card-title">Feature Specifications</h3>
+              <p class="card-sub">Detailed functional requirements per module</p>
+            </div>
+            <button class="copy-btn" onclick="copySection('featuresContent', this)" title="Copy">
+              <i class="bi bi-clipboard"></i>
+            </button>
+          </div>
+          <div class="card-body-content" id="featuresContent"></div>
+        </div>
+
+        <!-- 4. Database Schema Card -->
+        <div class="output-card glass-card schema-wide" id="schemaCard">
+          <div class="card-head">
+            <div class="card-icon-wrap schema-color">
+              <i class="bi bi-database-fill"></i>
+            </div>
+            <div>
+              <h3 class="card-title">Database Schema</h3>
+              <p class="card-sub">Recommended relational table structure</p>
+            </div>
+            <button class="copy-btn" onclick="copySection('schemaContent', this)" title="Copy">
+              <i class="bi bi-clipboard"></i>
+            </button>
+          </div>
+          <div class="card-body-content schema-content" id="schemaContent"></div>
+        </div>
+
+      </div>
+      <!-- /cards-grid -->
+
+    </section>
+    <!-- /outputSection -->
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <p>Built with <i class="bi bi-heart-fill" style="color:#f97316"></i> for campus placements &nbsp;·&nbsp; Requirement Clarifier AI</p>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast-msg" id="toastMsg"></div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
