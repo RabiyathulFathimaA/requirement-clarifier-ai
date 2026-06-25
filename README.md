@@ -9,7 +9,7 @@ A production-quality, AI-powered frontend application that acts as a system anal
 ## 🚀 Live Demo
 
 > Deploy to GitHub Pages and update this link.
-> `https://<your-username>.github.io/requirement-clarifier-ai`
+> `https://rabiyathulfathimaa.github.io/requirement-clarifier-ai`
 
 ---
 
